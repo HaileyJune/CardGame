@@ -88,18 +88,19 @@ namespace CardGame
 
                         if (Boop == "A" || Boop == "a")
                         {
-                            // player1.Attack(player1.Discard(0), EO);
+                            player1.Attack(player1.Discard(0), EO);
 
-                            Card cardplayed = player1.Discard(0);
-                            cardplayed.Attack(EO);
-                            player1.Discard(0);
+                            // Card cardplayed = player1.Discard(0);
+                            // cardplayed.Attack(EO);
+                            // player1.Discard(0);
                             errorCheck = false;
                         }
                         else if(Boop == "B" || Boop == "b")
                         {
-                            Card cardplayed = player1.Discard(1);
-                            cardplayed.Attack(EO);
-                            player1.Discard(0);
+                            player1.Attack(player1.Discard(1), EO);
+                            
+                            // Card cardplayed = player1.Discard(1);
+                            // cardplayed.Attack(EO);
                             errorCheck = false;
                         }
                         else
@@ -109,8 +110,9 @@ namespace CardGame
                     }
 
                     System.Console.WriteLine("###########");
-                    Card cardplayed1 = EO.Discard();
-                    cardplayed1.Attack(player1);
+                    // Card cardplayed1 = EO.Discard();
+                    // cardplayed1.Attack(player1);
+                    EO.Attack(EO.Discard(), player1);
                     System.Console.WriteLine("###########");
                     
                     if (GameDeck.cards.Count < cardsNeeded)

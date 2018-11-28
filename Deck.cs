@@ -35,19 +35,19 @@ namespace CardGame
                 }            
             }
             // Jacks
-            string JDes = "Deals a random amount of damage from ## to ##";
+            string JDes = "Deals a random amount of damage from 1 to 10";
             foreach (string suit in suits)
             {
                 cards.Add(new Card("Jack", suit, 11, JDes));
             }
             // Queens
-            string QDes = "Is OP";
+            string QDes = "Deals 5 damage and plays the other card in your hand.";
             foreach (string suit in suits)
             {
                 cards.Add(new Card("Queen", suit, 12, QDes));
             }
             // Kings
-            string KDes = "Finishes off target if they are under ## hp";
+            string KDes = "Finishes off target if they are under a quarter hp";
             foreach (string suit in suits)
             {
                 cards.Add(new Card("King", suit, 13, KDes));
