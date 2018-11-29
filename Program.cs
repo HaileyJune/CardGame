@@ -11,6 +11,7 @@ namespace CardGame
 
             while (Game)
             {
+                Console.Clear();
                 Deck GameDeck = new Deck();
                 System.Console.WriteLine("       ************************************       ");
                 System.Console.WriteLine("   ********************************************   ");
@@ -65,8 +66,8 @@ namespace CardGame
                     else
                     {
                         Players = 0;
-                    }
                     System.Console.WriteLine("Please type 1 or 2.");
+                    }
                 }
 
                 int PlayersAlive = Players;
@@ -74,6 +75,9 @@ namespace CardGame
                 //game loop
                 while (PlayersAlive > 0 && EO.health > 0)//and boss health
                 {
+                    System.Console.WriteLine("Ready?");
+                    Boop = Console.ReadLine();
+                    Console.Clear();
                     System.Console.WriteLine("*************************************************");
                     System.Console.WriteLine("***   {0} health is: {1}", player1.name, player1.health);
                     if (Players >1)
@@ -135,6 +139,9 @@ namespace CardGame
 //player 2
                     if (Players>1 && player2.health >= 0)
                     {
+                    System.Console.WriteLine("Ready?");
+                    Boop = Console.ReadLine();
+                    Console.Clear();
                     System.Console.WriteLine("***   {0} health is: {1}", player1.name, player1.health);
                     if (Players >1)
                     {
@@ -254,6 +261,7 @@ namespace CardGame
                     System.Console.WriteLine("Type 'C' to play again and 'Q' to quit.");
                     }
                 }
+                Console.Clear();
             }
         }
     }
