@@ -47,7 +47,7 @@ namespace CardGame
                         Boop = Console.ReadLine();
                         player1 = new Player(Boop);
                         cardsNeeded = 4;
-                        EO = new Player("Evil Overlord", 100);
+                        EO = new Player("Evil Overlord", 150);
                     }
                     else if (Players == 2)
                     {
@@ -59,7 +59,7 @@ namespace CardGame
                         System.Console.WriteLine("***   Enter Player 2's Name: ");
                         Boop = Console.ReadLine();
                         player2 = new Player(Boop);
-                        EO = new Player("Evil Overlord", 200);
+                        EO = new Player("Evil Overlord", 300);
                         cardsNeeded = 6;
                     }
                     else
@@ -93,7 +93,7 @@ namespace CardGame
                     System.Console.WriteLine("***      {0}'s Turn", player1.name);
                     System.Console.WriteLine("*************************************************");
                     player1.DisplayHand();
-                    System.Console.WriteLine("*************************************************");
+                    System.Console.WriteLine("************************************************");
                     System.Console.WriteLine("***   Would you like to play the first card or the second card?");
                     System.Console.WriteLine("***   Type 'A' for the first card and 'B' for the second card.");
 
@@ -101,9 +101,9 @@ namespace CardGame
                     while (errorCheck == true)
                     {
                     Boop = Console.ReadLine();
-                    System.Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                    System.Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                    System.Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    // System.Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    // System.Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    // System.Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
                         if (Boop == "A" || Boop == "a")
                         {
