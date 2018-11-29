@@ -8,12 +8,14 @@ namespace CardGame
         public string name;
         public List<Card> hand;
         public int health;
+        public int maxHealth;
 
         public Player(string myName)
         {
             name = myName;
             hand = new List<Card>();
             health = 100;
+            maxHealth = 100;
         }
 
         public Player(string myName, int bossHealth)
@@ -21,6 +23,7 @@ namespace CardGame
             name = myName;
             hand = new List<Card>();
             health = bossHealth;
+            maxHealth = bossHealth;
         }
 
         public Card Draw(Deck thisDeck)
@@ -64,9 +67,9 @@ namespace CardGame
             }
             else if (val == 1)
             {
-                if (health + 10 >= 100)
+                if (health + 10 >= maxHealth)
                 {
-                    health = 100;
+                    health = maxHealth;
                     System.Console.WriteLine("{0} was healed to full health by their Ace.", name);
                 }
                 else
@@ -90,14 +93,17 @@ namespace CardGame
                 System.Console.WriteLine("{0} Played a Queen, dealing 5 damage to {1} and allowing {0} to play their other card!", name, target.name);
                 if (QueenCheat(0).val == 12)
                 {
-                    System.Console.WriteLine("This should be an instant win.");
+                    System.Console.WriteLine("{0} was instantly killed by {1}'s Double Lesbian Queen Duo", target.name, name);
+                    target.health = 0;
                 }
-                
+                else
+                {
                 Attack(QueenCheat(0), target);
+                }
             }
             else if (val == 13)
             {
-                if (target.health < (target.health/4))
+                if (target.health < (target.maxHealth/4))
                 {
                     System.Console.WriteLine("{0} was dealt a killing blow by {1}'s King.", target.name, name);
                     target.health = 0;

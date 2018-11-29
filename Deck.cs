@@ -47,7 +47,7 @@ namespace CardGame
                 cards.Add(new Card("Queen", suit, 12, QDes));
             }
             // Kings
-            string KDes = "Finishes off target if they are under a quarter hp";
+            string KDes = "Finishes off target if they are under a quarter of their health";
             foreach (string suit in suits)
             {
                 cards.Add(new Card("King", suit, 13, KDes));

@@ -107,12 +107,16 @@ namespace CardGame
 
                         if (Boop == "A" || Boop == "a")
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
                             player1.Attack(player1.Discard(0), EO);
+                            Console.ResetColor();
                             errorCheck = false;
                         }
                         else if(Boop == "B" || Boop == "b")
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
                             player1.Attack(player1.Discard(1), EO);
+                            Console.ResetColor();
                             errorCheck = false;
                         }
                         else
@@ -155,12 +159,16 @@ namespace CardGame
 
                         if (Boop == "A" || Boop == "a")
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
                             player2.Attack(player2.Discard(0), EO);
+                            Console.ResetColor();
                             errorCheck3 = false;
                         }
                         else if(Boop == "B" || Boop == "b")
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
                             player2.Attack(player2.Discard(1), EO);
+                            Console.ResetColor();
                             errorCheck3 = false;
                         }
                         else
@@ -184,7 +192,10 @@ namespace CardGame
                     }
                     }
 
+                    Console.ForegroundColor = ConsoleColor.Red;
                     EO.Attack(EO.Discard(0), chosenPlayer);
+                    Console.ResetColor();
+
                     System.Console.WriteLine("*************************************************");
                     
                     if (GameDeck.cards.Count < cardsNeeded)
