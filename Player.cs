@@ -88,6 +88,11 @@ namespace CardGame
             {
                 target.health -= 5;
                 System.Console.WriteLine("{0} Played a Queen, dealing 5 damage to {1} and allowing {0} to play their other card!", name, target.name);
+                if (QueenCheat(0).val == 12)
+                {
+                    System.Console.WriteLine("This should be an instant win.");
+                }
+                
                 Attack(QueenCheat(0), target);
             }
             else if (val == 13)
