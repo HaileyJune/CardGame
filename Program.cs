@@ -12,6 +12,7 @@ namespace CardGame
             while (Game)
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.White;
                 Deck GameDeck = new Deck();
                 System.Console.WriteLine("       ************************************       ");
                 System.Console.WriteLine("   ********************************************   ");
@@ -48,7 +49,7 @@ namespace CardGame
                         Boop = Console.ReadLine();
                         player1 = new Player(Boop);
                         cardsNeeded = 4;
-                        EO = new Player("Evil Overlord", 150);
+                        EO = new Player("Evil Overlord", 100);
                     }
                     else if (Players == 2)
                     {
@@ -60,7 +61,7 @@ namespace CardGame
                         System.Console.WriteLine("***   Enter Player 2's Name: ");
                         Boop = Console.ReadLine();
                         player2 = new Player(Boop);
-                        EO = new Player("Evil Overlord", 300);
+                        EO = new Player("Evil Overlord", 200);
                         cardsNeeded = 6;
                     }
                     else
@@ -136,6 +137,27 @@ namespace CardGame
                     System.Console.WriteLine("*************************************************");
                     }
 
+                    System.Console.WriteLine("*************************************************");
+                    
+                    // pick a player
+                    if (EO.health > 0)
+                    {
+                    Player chosenPlayer = player1;
+                    if (Players > 1)
+                    {
+                    Random rand = new Random();
+                    int x = rand.Next(1,3);
+                    if (x == 2)
+                    {
+                        chosenPlayer = player2;
+                    }
+                    }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    EO.Attack(EO.Discard(0), chosenPlayer);
+                    Console.ResetColor();
+                    }
+
+
 //player 2
                     if (Players>1 && player2.health >= 0)
                     {
@@ -183,11 +205,11 @@ namespace CardGame
                             System.Console.WriteLine("Try writing 'a' or 'b' please.");
                         }
                     }
-                    }
-
                     System.Console.WriteLine("*************************************************");
                     
                     // pick a player
+                    if (EO.health > 0)
+                    {
                     Player chosenPlayer = player1;
                     if (Players > 1)
                     {
@@ -198,10 +220,34 @@ namespace CardGame
                         chosenPlayer = player2;
                     }
                     }
-
                     Console.ForegroundColor = ConsoleColor.Red;
+                    EO.Draw(GameDeck);
+                    EO.Draw(GameDeck);
                     EO.Attack(EO.Discard(0), chosenPlayer);
                     Console.ResetColor();
+                    }
+                    }
+
+                    // System.Console.WriteLine("*************************************************");
+                    
+                    // // pick a player
+                    // if (EO.health > 0)
+                    // {
+                    // Player chosenPlayer = player1;
+                    // if (Players > 1)
+                    // {
+                    // Random rand = new Random();
+                    // int x = rand.Next(1,3);
+                    // if (x == 2)
+                    // {
+                    //     chosenPlayer = player2;
+                    // }
+                    // }
+
+                    // Console.ForegroundColor = ConsoleColor.Red;
+                    // EO.Attack(EO.Discard(0), chosenPlayer);
+                    // Console.ResetColor();
+                    // }
 
                     System.Console.WriteLine("*************************************************");
                     
@@ -226,16 +272,23 @@ namespace CardGame
                 // if someone won say who won
                 if (EO.health <= 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
+
                     System.Console.WriteLine("***********************************");
                     System.Console.WriteLine("*    The Evil Overlord Is Dead    *");
                     System.Console.WriteLine("*     You Are The New Overlord    *");
                     System.Console.WriteLine("*         Destroy It All          *");
                     System.Console.WriteLine("***********************************");
-                    // player who won?
+                    
+                    Console.ResetColor();
                 }
                 else if (PlayersAlive <= 0)
                 {
-                    System.Console.WriteLine("You died. Very dead. Evil Wins Again.");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("********************************************");
+                    System.Console.WriteLine("*   You died. Very dead. Evil Wins Again.  *");
+                    System.Console.WriteLine("********************************************");
+                    Console.ResetColor();
                 }
                 else
                 {
